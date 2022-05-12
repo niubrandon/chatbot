@@ -6,7 +6,7 @@ export default function Home () {
 
   return (
     <>
-      <div className="text-xl font-bold">
+      <div className="text-xl font-bold pt-6">
         <PromptView />
         <PresetView />
         <CollectionView />
