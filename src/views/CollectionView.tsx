@@ -1,17 +1,19 @@
-import Card from '../components/Card';
+import CollectionCard from '../components/CollectionCard';
 export default function CollectionView () {
   const data = [
-    {id: 1, prompt: 'Who are you?', response: 'I am chatbot'},
-    {id: 2, prompt: 'What do you like?', response: 'Coffee'},
+    {id: 1, prompt: 'Who are you?', response: 'I am chatbot', postedOn: '2022-05-10'},
+    {id: 2, prompt: 'What do you like?', response: 'Coffee',postedOn: '2022-05-09'},
   ];
-  const collection = data.map((item) => {
+  const collectionCards = data.map((item) => {
     return (
-      <Card item={item} key={item.id} />
+      <CollectionCard item={item} key={item.id} />
     );
   });
   return (
     <>
-      {collection}
+      <div className="flex flex-col gap-2 mx-6">
+        {collectionCards}
+      </div>
     </>
   );
 }
