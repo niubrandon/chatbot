@@ -1,9 +1,15 @@
+import PromptView from '../views/PromptView';
+import PresetView from '../views/PresetView';
+import CollectionView from '../views/CollectionView';
+
 export default function Home () {
 
   return (
     <>
       <div className="text-xl font-bold">
-        Home
+        <PromptView />
+        <PresetView />
+        <CollectionView />
       </div>
     </>
   );
