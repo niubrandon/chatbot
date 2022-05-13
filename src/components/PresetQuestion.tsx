@@ -1,11 +1,12 @@
 interface Props {
   question: string
+  setPrompt: (value: string) => void
 }
 
-export default function PresetQuestion ({question}: Props) {
+export default function PresetQuestion ({question, setPrompt}: Props) {
 
   function onPresetQuestion() {
-    
+    setPrompt(question);
   }
   return (
     <>

@@ -1,6 +1,9 @@
 import PresetQuestion from '../components/PresetQuestion';
+interface Props {
+  setPrompt: (value: string) => void
+}
 
-export default function PresetView () {
+export default function PresetView ({ setPrompt }: Props) {
 
   const presetQuestions = [
     'What\'s your name?', 
@@ -12,14 +15,15 @@ export default function PresetView () {
   ];
   const Questions = presetQuestions.map((item, index) => {
     return (
-      <PresetQuestion question={item} key={index} />
+      <PresetQuestion question={item} key={index} setPrompt={setPrompt} />
     );
   });
   return (
     <>
       <div id="preset-questions-container"
         data-testid="preset-questions-container"
-        className="grid grid-cols-3 gap-2 m-6 p-4 rounded-lg shadow-lg md:grid-cols-2 xs:grid-cols-1 bg-neutral-100" >
+        className="grid grid-cols-3 gap-2 m-6 p-4 rounded-lg shadow-lg dark:bg-black
+        md:grid-cols-2 xs:grid-cols-1 bg-neutral-100" >
         {Questions}
       </div>
     </>
