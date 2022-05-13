@@ -1,12 +1,18 @@
 import CollectionCard from '../components/CollectionCard';
-export default function CollectionView () {
-  const data = [
-    {id: 1, prompt: 'Who are you?', response: 'I am chatbot', postedOn: '2022-05-10'},
-    {id: 2, prompt: 'What do you like?', response: 'Coffee',postedOn: '2022-05-09'},
-  ];
-  const collectionCards = data.map((item) => {
+interface Collection {
+  prompt: string
+  response: string
+  postedOn: string
+  }
+  interface Props {
+    collection: Collection[]
+    setCollection: (value: Collection[]) => void
+  }
+export default function CollectionView ({collection, setCollection}: Props) {
+
+  const collectionCards = collection.map((item, index) => {
     return (
-      <CollectionCard item={item} key={item.id} />
+      <CollectionCard item={item} key={index} />
     );
   });
   return (
