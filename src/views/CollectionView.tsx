@@ -10,7 +10,7 @@ interface Collection {
   }
 export default function CollectionView ({collection, setCollection}: Props) {
 
-  const collectionCards = collection.map((item, index) => {
+  const collectionCards = collection.sort((a, b)=> {return Date.parse(b.postedOn) - Date.parse(a.postedOn);}).map((item, index) => {
     return (
       <CollectionCard item={item} key={index} />
     );
