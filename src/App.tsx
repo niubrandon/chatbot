@@ -33,7 +33,7 @@ function App() {
 
       </main>
       <footer className="fixed bottom-2 w-full flex items-center justify-center font-medium bg-white z-10">
-        Made in ❤️ with Brandon!
+        Made in &hearts; with Brandon!
       </footer>
     </div>
   );
