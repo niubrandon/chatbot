@@ -27,7 +27,7 @@ describe('<PresetQuestion />', () => {
 
   it('render a preset question without crashing', () => {
     const setPrompt = jest.fn();
-    render(<PresetQuestion question={question} setPrompt={setPrompt} />);
+    render(<PresetQuestion id={1} question={question} setPrompt={setPrompt} />);
     const presentQuestion = screen.getByTestId('preset-question-container');
     expect(presentQuestion).toHaveTextContent('What\'s your name?');
   
@@ -35,7 +35,7 @@ describe('<PresetQuestion />', () => {
 
   it('setPrmopt is called after the question is clicked', () => {
     const setPrompt = jest.fn();
-    render(<PresetQuestion question={question} setPrompt={setPrompt} />);
+    render(<PresetQuestion id={1} question={question} setPrompt={setPrompt} />);
     const presentQuestion = screen.getByTestId('preset-question-container');   
     fireEvent.click(presentQuestion);
     expect(setPrompt).toBeCalled();

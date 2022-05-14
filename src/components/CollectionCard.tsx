@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ReactComponent as BookmarkSvg} from '../assets/bookmark-regular.svg';
 import { useTranslation } from 'react-i18next';
 import ReactTooltip from 'react-tooltip';
@@ -12,7 +13,14 @@ interface Props {
 
 export default function Card ({item}: Props) {
   const { t } = useTranslation();
+  
+  // temporary fix to add tooltip state and mouse events because the react-tooltip library does not support React 18
+  // https://github.com/wwayne/react-tooltip/issues/769
+  const [tooltip, showTooltip] = useState(true);
 
+  const addToFavorite = () => {
+    
+  };
   return (
     <div className="relative w-full h-fit border-2 border-neutral-200 rounded-lg flex justify-between 
       gap-2 shadow-md hover:border-purple-300 hover:shadow-xl dark:bg-gray-800 dark:text-white p-2 m-4">
@@ -27,11 +35,18 @@ export default function Card ({item}: Props) {
         <BookmarkSvg 
           data-tip
           role="button"
-          data-for="collection-item"
+          data-for={item.postedOn}
+          onMouseEnter={() => showTooltip(true)}
+          onMouseLeave={() => {
+            showTooltip(false);
+            setTimeout(() => showTooltip(true), 50);
+          }}
+          onClick={addToFavorite}
           className="h-6 w-6 hover:fill-purple-300 dark:fill-white"></BookmarkSvg>
-        <ReactTooltip id="collection-item" effect="solid" type='info' globalEventOff='click'>
+        { tooltip &&  <ReactTooltip id={item.postedOn} effect="solid" type='info' globalEventOff='click'>
           <span>Bookmark this collection!</span>
-        </ReactTooltip>  
+        </ReactTooltip>  }
+       
       </div>  
     </div>
   );

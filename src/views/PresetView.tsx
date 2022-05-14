@@ -15,7 +15,7 @@ export default function PresetView ({ setPrompt }: Props) {
   ];
   const Questions = presetQuestions.map((item, index) => {
     return (
-      <PresetQuestion question={item} key={index} setPrompt={setPrompt} />
+      <PresetQuestion question={item} id={index} key={index} setPrompt={setPrompt} />
     );
   });
   return (
