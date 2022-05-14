@@ -25,7 +25,7 @@ function App() {
         <ModeSwitch />   
 
       </div>
-      <main className="mt-[70px]">
+      <main className="mt-[70px] bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

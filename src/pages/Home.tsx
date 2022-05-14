@@ -75,18 +75,22 @@ export default function Home () {
  
   return (
     <>
-      <div className="text-xl font-bold pt-6 dark:text-white">
+      <div className="text-xl font-bold pt-6 dark:text-white flex flex-col gap-4">
         <PromptForm prompt={prompt} setPrompt={setPrompt} handleSubmit={handleSubmit} />
-        <div className="flex ml-2">
-          <PresetQuestionSvg className="h-7 w-7" />
-          <h2 className="ml-4">{t('running out of ideas')}?</h2>
-        </div>   
-        <PresetView setPrompt={setPrompt}  />     
-        <div className="flex ml-2 mb-7">
-          <CollectionSvg className="h-7 w-7" />
-          <h2 className="ml-4">{t('collection')}</h2>   
+        <div className="flex flex-col">
+          <div className="flex ml-2 gap-2">
+            <PresetQuestionSvg className="h-7 w-7 dark:fill-white" />
+            <h2 className="ml-4">{t('running out of ideas')}?</h2>
+          </div>   
+          <PresetView setPrompt={setPrompt}  />     
         </div>
-        <CollectionView collection={collection} setCollection={setCollection} />      
+        <div className="flex flex-col ml-2 gap-2">
+          <div className="flex ml-2 gap-2">
+            <CollectionSvg className="h-7 w-7 dark:fill-white" />
+            <h2 className="ml-4">{t('collection')}</h2>   
+          </div>
+          <CollectionView collection={collection} setCollection={setCollection} />      
+        </div>    
       </div>
       <ToastContainer
         position="bottom-right"

@@ -15,13 +15,13 @@ export default function Card ({item}: Props) {
 
   return (
     <div className="w-full h-fit border-2 border-neutral-200 rounded-lg flex justify-between 
-      gap-2 shadow-md hover:border-purple-300 hover:shadow-xl dark:bg-black dark:text-white p-2">
+      gap-2 shadow-md hover:border-purple-300 hover:shadow-xl dark:bg-gray-800 dark:text-white p-2">
       <div className="flex flex-col justify-around">
         <p>{t('prompt')}: {item.prompt} </p>
         <p>{t('response')}: {item.response} </p>
       </div> 
       <div className="flex flex-col justify-between items-end text-sm">
-        <BookmarkSvg data-tip="Bookmark this collection" className="h-6 w-6 hover:fill-purple-300" />
+        <BookmarkSvg data-tip="Bookmark this collection" className="h-6 w-6 hover:fill-purple-300 dark:fill-white" />
         {item.postedOn}
         <ReactTooltip />      
       </div>  
