@@ -9,12 +9,12 @@ export default function LanguageSwitch () {
     }
   }, []);
 
-  function onEnglish () {
+  function onEnglish () :void {
     window.localStorage.language='en';
     i18n.changeLanguage('en');
   }
 
-  function onFrench () {
+  function onFrench () :void {
     window.localStorage.language='fr';
     i18n.changeLanguage('fr');
   }

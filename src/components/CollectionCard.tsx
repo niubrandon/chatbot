@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Card ({item}: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="w-full h-fit border-2 border-neutral-200 rounded-lg flex justify-between 
