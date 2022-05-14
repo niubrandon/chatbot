@@ -22,7 +22,8 @@ export default function Prompt ({prompt, isLoading, setPrompt, handleSubmit}: Pr
         data-testid="prompt-container"
         className="flex items-center justify-center px-8 dark:text-white">
         <form onSubmit={handleSubmit} className="gap-2 w-full grid grid-cols-5 lg:grid-cols-1 items-center">
-          <div className="flex px-2 w-full items-center col-span-3 h-16 shadow-xl focus:shadow-3xl rounded-full border-2 hover:border-purple-400 dark:bg-slate-900">
+          <div
+            className="flex px-2 w-full items-center col-span-3 h-16 shadow-xl focus:shadow-3xl rounded-full border-2 hover:border-purple-400 dark:bg-slate-900">
             <SearchSvg className="h-7 w-7 fill-purple-400" />
             <input
               id="prompt-input"

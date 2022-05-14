@@ -25,9 +25,13 @@ export default function Card ({item}: Props) {
       <div className="absolute right-2 flex gap-2 justify-between items-end text-sm">
         {item.postedOn}
         <BookmarkSvg 
-          data-tip="Bookmark this collection" 
+          data-tip
+          role="button"
+          data-for="collection-item"
           className="h-6 w-6 hover:fill-purple-300 dark:fill-white"></BookmarkSvg>
-        <ReactTooltip />      
+        <ReactTooltip id="collection-item" effect="solid" type='info' globalEventOff='click'>
+          <span>Bookmark this collection!</span>
+        </ReactTooltip>  
       </div>  
     </div>
   );
