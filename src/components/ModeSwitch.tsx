@@ -28,7 +28,7 @@ export default function ModeSwitch () {
       <div
         id="mode-switch-container"
         data-testid="mode-switch-container"
-        className="flex gap-1 border-2 border-neutral-300 rounded-lg p-1 ">
+        className="flex gap-1 border-2 border-neutral-300 rounded-lg p-1 focus:border-purple-400">
         <LightSvg
           id="mode-switch-light"
           data-testid="mode-switch-light"

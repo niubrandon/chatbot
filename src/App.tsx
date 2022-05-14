@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import About from './pages/About';
 import ModeSwitch from './components/ModeSwitch';
+import LanguageSwitch from './components/LanguageSwitch';
 import { ReactComponent as LogoSvg } from './assets/circle-nodes-solid.svg';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 function App() {
@@ -21,8 +22,11 @@ function App() {
           <nav>
             <Link to="/about">About</Link>
           </nav>
+        </div>
+        <div className="flex gap-2">
+          <ModeSwitch />  
+          <LanguageSwitch /> 
         </div>         
-        <ModeSwitch />   
 
       </div>
       <main className="mt-[70px] bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800">

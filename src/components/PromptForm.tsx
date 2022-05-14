@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ReactComponent as SearchSvg } from '../assets/searchengin-brands.svg';
 interface Props {
   prompt: string
   setPrompt: (value: string) => void
@@ -20,13 +21,16 @@ export default function Prompt ({prompt, setPrompt, handleSubmit}: Props) {
         data-testid="prompt-container"
         className="flex items-center justify-center px-8">
         <form onSubmit={handleSubmit} className="gap-2 w-full grid grid-cols-5 lg:grid-cols-1 items-center">
-          <input 
-            type="text"
-            value={prompt}
-            name="prompt"
-            onChange={(e) => setPrompt(e.target.value)}
-            className="col-span-3 shadow-xl focus:shadow-3xl rounded-xl h-16 hover:border-purple-400" 
-            placeholder="Ask me anything" />
+          <div className="flex px-2 w-full items-center col-span-3 h-16 shadow-xl focus:shadow-3xl rounded-full border-2 hover:border-purple-400">
+            <SearchSvg className="h-7 w-7 fill-purple-400" />
+            <input 
+              type="text"
+              value={prompt}
+              name="prompt"
+              onChange={(e) => setPrompt(e.target.value)}
+              className="grow focus:outline-none" 
+              placeholder="  Ask me anything" />
+          </div>           
           <div className="col-span-2 grid grid-cols-3 gap-2">
             <div className="col-span-2 flex flex-col text-sm gap-2 border-2 border-neutral-200 
             hover:border-purple-400 shadow-md rounded-lg p-2">
