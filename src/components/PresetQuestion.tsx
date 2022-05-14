@@ -1,3 +1,4 @@
+import ReactTooltip from 'react-tooltip';
 interface Props {
   question: string
   setPrompt: (value: string) => void
@@ -15,7 +16,8 @@ export default function PresetQuestion ({question, setPrompt}: Props) {
       gap-2 shadow-md hover:border-purple-300 hover:shadow-xl dark:bg-black dark:text-white p-2 cursor-pointer"
         onClick={onPresetQuestion}>
         <div>
-          <p>{question} </p>
+          <p data-tip="Try this one as prompt!">{question} </p>
+          <ReactTooltip />
         </div>    
       </div>
     </>

@@ -3,6 +3,10 @@ import PromptForm from '../components/PromptForm';
 import PresetView from '../views/PresetView';
 import CollectionView from '../views/CollectionView';
 import { ToastContainer, toast } from 'react-toastify';
+import { ReactComponent as CollectionSvg } from '../assets/grip-solid.svg';
+import { ReactComponent as QuestionSvg } from '../assets/circle-question-regular.svg';
+import { ReactComponent as PresetQuestionSvg } from '../assets/bolt-solid.svg';
+import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
 interface Collection {
 prompt: string
@@ -13,13 +17,15 @@ export default function Home () {
   const [prompt, setPrompt] = useState('');
   const [collection, setCollection] = useState<Collection[]>([]);
   const axios = require('axios');
+  const { t, i18n } = useTranslation();
 
   let collectionArray: Array<Collection> = [];
   function handleSubmit(event: any) {
     event?.preventDefault();
-    console.log('##form data', event.target.prompt.value);
+    console.log('##form data', event.target.prompt.value, event.target.model.value);
+    const model = event.target.model.value === 'davinci' ? 'text-davinci-002' : 'text-curie-001';
     //http request
-    const url = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
+    const url = `https://api.openai.com/v1/engines/${model}/completions`;
     const data = {
       'prompt': prompt,
       'temperature': 0.9,
@@ -71,9 +77,15 @@ export default function Home () {
     <>
       <div className="text-xl font-bold pt-6 dark:text-white">
         <PromptForm prompt={prompt} setPrompt={setPrompt} handleSubmit={handleSubmit} />
-        <h2 className="ml-4">Running out of ideas?</h2>
-        <PresetView setPrompt={setPrompt}  />
-        <h2 className="ml-4">Collection</h2>
+        <div className="flex ml-2">
+          <PresetQuestionSvg className="h-7 w-7" />
+          <h2 className="ml-4">{t('running out of ideas')}?</h2>
+        </div>   
+        <PresetView setPrompt={setPrompt}  />     
+        <div className="flex ml-2 mb-7">
+          <CollectionSvg className="h-7 w-7" />
+          <h2 className="ml-4">{t('collection')}</h2>   
+        </div>
         <CollectionView collection={collection} setCollection={setCollection} />      
       </div>
       <ToastContainer
