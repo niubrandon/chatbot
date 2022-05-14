@@ -14,12 +14,14 @@ postedOn: string
 }
 export default function Home () {
   const [prompt, setPrompt] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [collection, setCollection] = useState<Collection[]>([]);
   const axios = require('axios');
   const { t, i18n } = useTranslation();
 
   let collectionArray: Array<Collection> = [];
   function handleSubmit(event: any) {
+    setIsLoading(true);
     event?.preventDefault();
     console.log('##form data', event.target.prompt.value, event.target.model.value);
     const model = event.target.model.value === 'davinci' ? 'text-davinci-002' : 'text-curie-001';
@@ -40,7 +42,7 @@ export default function Home () {
         'Authorization': `Bearer ${REACT_APP_API_KEY}`
       }
     }).then((res: any) => {
-
+      
       if (!res.data.choices[0].text) {
         toast.warning('Sorry, I don\'t understand your question');
       } else {
@@ -62,12 +64,14 @@ export default function Home () {
           localStorage.setItem('collection', JSON.stringify(collectionArray));
         }  
         toast.success('🦄 Please check you response in collection!');
+        setIsLoading(false);
       }
       setPrompt('');   
    
     }).catch((error: any) => {
       console.log(error);
       toast.error(error);
+      setIsLoading(false);
     });
   }
 
@@ -81,21 +85,21 @@ export default function Home () {
   return (
     <>
       <div className="text-xl font-bold pt-6 dark:text-white flex flex-col gap-4">
-        <PromptForm prompt={prompt} setPrompt={setPrompt} handleSubmit={handleSubmit} />
-        <div className="flex flex-col">
-          <div className="flex ml-2 gap-2">
+        <PromptForm prompt={prompt} setPrompt={setPrompt} handleSubmit={handleSubmit} isLoading={isLoading} />
+        <section className="flex flex-col" aria-labelledby="questions">
+          <title className="flex ml-2 gap-2">
             <PresetQuestionSvg className="h-7 w-7 dark:fill-white" />
-            <h2 className="ml-4">{t('running out of ideas')}?</h2>
-          </div>   
+            <h2 id="questions" className="ml-4">{t('running out of ideas')}?</h2>
+          </title>   
           <PresetView setPrompt={setPrompt}  />     
-        </div>
-        <div className="flex flex-col ml-2 gap-2">
-          <div className="flex ml-2 gap-2">
+        </section>
+        <section className="flex flex-col ml-2 gap-2" aria-labelledby="collection">
+          <title className="flex ml-2 gap-2">
             <CollectionSvg className="h-7 w-7 dark:fill-white" />
-            <h2 className="ml-4">{t('collection')}</h2>   
-          </div>
+            <h2 id="collection" className="ml-4">{t('collection')}</h2>   
+          </title>
           <CollectionView collection={collection} setCollection={setCollection} />      
-        </div>    
+        </section>    
       </div>
       <ToastContainer
         position="bottom-right"

@@ -17,10 +17,11 @@ function App() {
           <LogoSvg className="w-7 h-7 fill-purple-500" />
           <h1 
             onClick={() => navigate('/') }
-            className="text-3xl font-bold text-purple-500"       
+            className="text-3xl font-bold text-purple-500"   
+            role="banner"    
           >ChatBot</h1>
-          <nav>
-            <Link to="/about">About</Link>
+          <nav role="navigation">
+            <Link className="font-semibold" to="/about">About</Link>
           </nav>
         </div>
         <div className="flex gap-2">
@@ -29,15 +30,21 @@ function App() {
         </div>         
 
       </div>
-      <main className="mt-[70px] bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800">
+      <main 
+        className="mt-[70px] bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800"
+        role="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>
 
       </main>
-      <footer className="fixed bottom-2 w-full flex items-center justify-center font-medium bg-white z-10">
-        Made in &hearts; with Brandon!
+      <footer 
+        className="fixed bottom-0 w-full flex items-center justify-center 
+      bg-slate-100 dark:bg-slate-900 dark:text-white font-medium z-10"
+        role="contentinfo"
+      >
+        <p>Made in <span className="text-red-400">&hearts;</span> with Brandon!</p>
       </footer>
     </div>
   );

@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as SearchSvg } from '../assets/searchengin-brands.svg';
+import { ReactComponent as CloseSvg } from '../assets/xmark-solid.svg';
+import { ReactComponent as LoadingSvg } from '../assets/spinner-solid.svg';
 interface Props {
   prompt: string
+  isLoading: boolean
   setPrompt: (value: string) => void
   handleSubmit: (event: any) => void
 }
 
-export default function Prompt ({prompt, setPrompt, handleSubmit}: Props) {
+export default function Prompt ({prompt, isLoading, setPrompt, handleSubmit}: Props) {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    // console.log('Question is', prompt);
-  }, [prompt]);
+  const onClose = () => setPrompt('');
 
   return (
     <>
@@ -30,10 +31,11 @@ export default function Prompt ({prompt, setPrompt, handleSubmit}: Props) {
               value={prompt}
               name="prompt"
               onChange={(e) => setPrompt(e.target.value)}
-              className="grow focus:outline-none dark:bg-slate-900" 
+              className="grow focus:outline-none dark:bg-slate-900 animate-pulse" 
               placeholder="  Ask me anything"
               maxLength={100}
               required />
+            <CloseSvg role="button" className="h-6 w-6 mr-2 hover:scale-125" onClick={onClose} />
           </div>           
           <div className="col-span-2 grid grid-cols-3 gap-2">
             <div className="col-span-2 flex flex-col text-sm gap-2 border-2 border-neutral-200 
@@ -47,7 +49,14 @@ export default function Prompt ({prompt, setPrompt, handleSubmit}: Props) {
             <button id="prompt-submit-button"
               data-testid="prompt-submit-button" 
               type="submit" 
-              className="md:text-sm bg-gradient-to-r from-blue-400 to-purple-500 hover:from-pink-500 hover:to-yellow-500 shadow-md focus:shadow-xl rounded-lg p-2 font-medium">{t('submit')}</button>
+              className="md:text-sm bg-gradient-to-r from-blue-400 to-purple-500 
+              hover:from-pink-500 hover:to-yellow-500 shadow-md focus:shadow-xl rounded-lg p-2 font-medium
+              flex items-center justify-center"
+              disabled={isLoading}
+            >
+              {isLoading && (<LoadingSvg className="h-7 w-7 animate-spin" />)}
+              {!isLoading && t('submit')}
+            </button>
           </div>
         </form> 
       </div>

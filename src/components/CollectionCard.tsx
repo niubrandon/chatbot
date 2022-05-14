@@ -18,15 +18,15 @@ export default function Card ({item}: Props) {
       gap-2 shadow-md hover:border-purple-300 hover:shadow-xl dark:bg-gray-800 dark:text-white p-2 m-4">
       <div className="flex flex-col w-full justify-around">
         <span>{t('prompt')}:</span>
-        <span className="text-base :">{item.prompt}</span>
+        <p className="text-base :">{item.prompt}</p>
         <span>{t('response')}: </span>
-        <span className="text-base">{item.response}</span>
+        <p className="text-base">{item.response}</p>
       </div> 
-      <div className="absolute right-2 flex justify-between items-end text-sm">
+      <div className="absolute right-2 flex gap-2 justify-between items-end text-sm">
         {item.postedOn}
         <BookmarkSvg 
           data-tip="Bookmark this collection" 
-          className="h-6 w-6 hover:fill-purple-300 dark:fill-white" />
+          className="h-6 w-6 hover:fill-purple-300 dark:fill-white"></BookmarkSvg>
         <ReactTooltip />      
       </div>  
     </div>
