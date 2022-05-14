@@ -31,7 +31,9 @@ export default function Prompt ({prompt, setPrompt, handleSubmit}: Props) {
               name="prompt"
               onChange={(e) => setPrompt(e.target.value)}
               className="grow focus:outline-none dark:bg-slate-900" 
-              placeholder="  Ask me anything" />
+              placeholder="  Ask me anything"
+              maxLength={100}
+              required />
           </div>           
           <div className="col-span-2 grid grid-cols-3 gap-2">
             <div className="col-span-2 flex flex-col text-sm gap-2 border-2 border-neutral-200 

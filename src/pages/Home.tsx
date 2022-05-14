@@ -41,24 +41,29 @@ export default function Home () {
         'Authorization': `Bearer ${REACT_APP_API_KEY}`
       }
     }).then((res: any) => {
-      let postedOn = new Date();
-      const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString() };
- 
-      setCollection(prevState => (
-        [...prevState, newCollection]
-      ));
-        
-      if (localStorage.collection) {   
-        collectionArray = JSON.parse(localStorage.collection);
-        collectionArray.unshift(newCollection);   
-        localStorage.setItem('collection', JSON.stringify(collectionArray));
-                     
+
+      if (!res.data.choices[0].text) {
+        toast.warning('Sorry, I don\'t understand your question');
       } else {
-        let collectionArray: Array<Collection> = [];
-        collectionArray.push(newCollection);
-        localStorage.setItem('collection', JSON.stringify(collectionArray));
-      }  
-      toast.success('🦄 Please check you response in collection!');
+        let postedOn = new Date();
+        const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString() };
+   
+        setCollection(prevState => (
+          [...prevState, newCollection]
+        ));
+          
+        if (localStorage.collection) {   
+          collectionArray = JSON.parse(localStorage.collection);
+          collectionArray.unshift(newCollection);   
+          localStorage.setItem('collection', JSON.stringify(collectionArray));
+                       
+        } else {
+          let collectionArray: Array<Collection> = [];
+          collectionArray.push(newCollection);
+          localStorage.setItem('collection', JSON.stringify(collectionArray));
+        }  
+        toast.success('🦄 Please check you response in collection!');
+      }   
    
     }).catch((error: any) => {
       console.log(error);
