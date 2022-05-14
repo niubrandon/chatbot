@@ -4,7 +4,6 @@ import PresetView from '../views/PresetView';
 import CollectionView from '../views/CollectionView';
 import { ToastContainer, toast } from 'react-toastify';
 import { ReactComponent as CollectionSvg } from '../assets/grip-solid.svg';
-import { ReactComponent as QuestionSvg } from '../assets/circle-question-regular.svg';
 import { ReactComponent as PresetQuestionSvg } from '../assets/bolt-solid.svg';
 import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
@@ -63,7 +62,8 @@ export default function Home () {
           localStorage.setItem('collection', JSON.stringify(collectionArray));
         }  
         toast.success('🦄 Please check you response in collection!');
-      }   
+      }
+      setPrompt('');   
    
     }).catch((error: any) => {
       console.log(error);
