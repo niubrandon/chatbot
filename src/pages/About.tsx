@@ -15,6 +15,7 @@ export default function About () {
             <span className="font-medium text-neutral-400"><a href="mailto:niubrandon@gmail.com"><u>niubrandon@gmail.com</u></a></span>
           </div>
         </section>
+
         <section className="flex flex-col grow">
           <h2 className="font-semibold">Experience:</h2>
           <p className="text-base font-medium">PiiComm Inc. <span className="text-xs italic">Software Developer</span>  <span className="text-xs">Dec 2021 - Present</span></p>
@@ -22,6 +23,7 @@ export default function About () {
           <p className="text-base font-medium mt-2">Multimatic Inc. <span className="text-xs italic">Quality Engineer</span>  <span className="text-xs">Jun 2016 - Aug 2021</span></p>
           <p className="text-sm"> - Launched and maintained the Ford GT supercar project </p>
         </section>
+
         <section className="flex flex-col">
           <h2 className="font-semibold">Tech Stacks:</h2>
           <ul className="text-sm">
@@ -31,6 +33,7 @@ export default function About () {
             <li></li>
           </ul>      
         </section>
+
         <div className="flex justify-center h-12">
           <a 
             href="https://www.linkedin.com/in/niubrandon/"
@@ -38,8 +41,6 @@ export default function About () {
             LinkedIn Profile
           </a>
         </div>
-      
- 
       </div>
     </>
   );

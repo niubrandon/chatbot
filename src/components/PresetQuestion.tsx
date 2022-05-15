@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
+
 interface Props {
   id: number
   question: string
@@ -15,6 +16,7 @@ export default function PresetQuestion ({id, question, setPrompt}: Props) {
   const onPresetQuestion = () => {
     setPrompt(question);
   };
+  
   return (
     <>
       <div

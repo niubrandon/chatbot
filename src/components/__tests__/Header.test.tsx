@@ -5,6 +5,14 @@ import { initReactI18next } from 'react-i18next';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('<Header />', () => {
+  window.matchMedia = window.matchMedia || function() {
+    return {
+      matches: false,
+      addListener: function() {},
+      removeListener: function() {}
+    };
+  };
+
   i18n
     .use(initReactI18next)
     .init({
@@ -19,13 +27,12 @@ describe('<Header />', () => {
       },
       lng: 'en', 
       fallbackLng: 'en',
-  
       interpolation: {
         escapeValue: false
       }
     });
   
-  it.skip('renders header without crashing', () => {
+  it('renders the header without crashing', () => {
     render(
       <BrowserRouter>
         <Header />
@@ -35,5 +42,4 @@ describe('<Header />', () => {
     expect(modeSwitch).toBeInTheDocument();
     expect(languageSelector).toBeInTheDocument();
   });
-
 });

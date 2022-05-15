@@ -9,10 +9,9 @@ describe('<ModeSwitch />', () => {
       addListener: function() {},
       removeListener: function() {}
     };
-
   };
   
-  it('renders mode switch without crashing', () => {
+  it('renders the mode switch without crashing', () => {
     render(<ModeSwitch />);
     window.localStorage.theme='light';
     const lightMode = screen.getByTestId('mode-switch-light');
@@ -21,7 +20,7 @@ describe('<ModeSwitch />', () => {
     expect(darkMode).toBeInTheDocument();
   });
 
-  it('toggle to dark mode or light mode when corresponding mode is clicked', async () => {
+  it('toggles to dark mode or light mode when the corresponding mode is clicked', async () => {
     render(<ModeSwitch />);
     const darkMode = screen.getByTestId('mode-switch-dark');   
     const lightMode = screen.getByTestId('mode-switch-light');

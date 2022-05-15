@@ -4,6 +4,7 @@ import CollectionView from '../views/CollectionView';
 import { ReactComponent as CollectionSvg } from '../assets/grip-solid.svg';
 import { ReactComponent as PresetQuestionSvg } from '../assets/bolt-solid.svg';
 import { useTranslation } from 'react-i18next';
+
 interface Collection {
   id: string
   prompt: string
@@ -11,15 +12,16 @@ interface Collection {
   postedOn: string
   isFavorite: boolean
   model: string
-  }
-  interface Props {
-    prompt: string
-    isLoading: boolean
-    collection: Collection[]
-    setPrompt: (value: string) => void
-    handleSubmit: (event: any) => void
-    handleFavorite: (value: Collection) => void
-  }
+}
+
+interface Props {
+  prompt: string
+  isLoading: boolean
+  collection: Collection[]
+  setPrompt: (value: string) => void
+  handleSubmit: (event: any) => void
+  handleFavorite: (value: Collection) => void
+}
 
 export default function Home ({prompt, setPrompt, isLoading, collection, handleFavorite, handleSubmit}: Props) {
 
@@ -36,6 +38,7 @@ export default function Home ({prompt, setPrompt, isLoading, collection, handleF
           </title>   
           <PresetView setPrompt={setPrompt}  />     
         </section>
+        
         <section className="flex flex-col ml-2 gap-2" aria-labelledby="collection">
           <title className="flex ml-2 gap-2">
             <CollectionSvg className="h-7 w-7 dark:fill-white" />

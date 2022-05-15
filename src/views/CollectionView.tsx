@@ -1,4 +1,5 @@
 import CollectionCard from '../components/CollectionCard';
+
 interface Collection {
   id: string
   prompt: string
@@ -6,11 +7,12 @@ interface Collection {
   postedOn: string
   isFavorite: boolean
   model: string
-  }
-  interface Props {
-    collection: Collection[]
-    handleFavorite: (value: Collection) => void
-  }
+}
+
+interface Props {
+  collection: Collection[]
+  handleFavorite: (value: Collection) => void
+}
 
 export default function CollectionView ({collection, handleFavorite}: Props) {
 

@@ -16,13 +16,12 @@ describe('<LanguageSwitch />', () => {
       },
       lng: 'en', 
       fallbackLng: 'en',
-
       interpolation: {
         escapeValue: false
       }
     });
 
-  it('renders language switch without crashing', () => {
+  it('renders the language switch without crashing', () => {
     render(<LanguageSwitch />);
     const buttonEnglish = screen.getByTestId('language-switch-en');
     const buttonFrench = screen.getByTestId('language-switch-fr');
@@ -30,7 +29,7 @@ describe('<LanguageSwitch />', () => {
     expect(buttonFrench).toBeInTheDocument();
   });
 
-  it('English button is enabled and French button is disabled after fr button is clicked', () => {
+  it('enables the English button and disables the French button after the fr button is clicked', () => {
     render(<LanguageSwitch />);
     const buttonEnglish = screen.getByTestId('language-switch-en');
     const buttonFrench = screen.getByTestId('language-switch-fr');

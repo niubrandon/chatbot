@@ -1,4 +1,5 @@
 import PresetQuestion from '../components/PresetQuestion';
+
 interface Props {
   setPrompt: (value: string) => void
 }
@@ -13,6 +14,7 @@ export default function PresetView ({setPrompt}: Props) {
     'How do you make chicken noodle soup?',
     'What\'s the name of the prime minister of Canada?'
   ];
+
   const Questions = presetQuestions.map((item, index) => {
     return (
       <PresetQuestion question={item} id={index} key={index} setPrompt={setPrompt} />

@@ -16,7 +16,6 @@ describe('<CollectionCard />', () => {
       },
       lng: 'en', 
       fallbackLng: 'en',
-
       interpolation: {
         escapeValue: false
       }
@@ -24,7 +23,8 @@ describe('<CollectionCard />', () => {
   const handleFavorite = jest.fn();
   const data = {
     id:'11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000' ,
-    prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', 
+    prompt: 'What\'s your name?', 
+    response: '↵↵My name is Samantha.', 
     postedOn: '2022-05-13', 
     isFavorite: false, 
     model: 'Davinci'
@@ -37,7 +37,7 @@ describe('<CollectionCard />', () => {
     expect(span).toHaveTextContent('11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000');
   });
 
-  it('it add the collection to favorite when favorite tag is clicked', () => {
+  it('adds the collection to Favorites when the bookmark icon is clicked', () => {
     render(<CollectionCard item={data} handleFavorite={handleFavorite} />);
     const button = screen.getByRole('button');
     fireEvent.click(button);

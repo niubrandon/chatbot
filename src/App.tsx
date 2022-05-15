@@ -8,6 +8,7 @@ import Favorite from './pages/Favorite';
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 interface Collection {
   prompt: string
   response: string
@@ -15,7 +16,7 @@ interface Collection {
   isFavorite: boolean
   model: string
   id: string
-  }
+}
 
 function App() {
 
@@ -32,11 +33,13 @@ function App() {
   return (
     <div className="flex flex-col dark:bg-black h-fit min-h-screen">
       <Header />
+
       <main
         id="main"
         data-testid="main" 
         className="mt-[70px] h-fit min-h-full dark:from-black dark:to-slate-800"
-        role="main">
+        role="main"
+      >
         <Routes>
           <Route path="/" element={<Home 
             prompt={prompt} 
@@ -51,7 +54,9 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
+
       <Footer />
+      
       <ToastContainer
         position="bottom-right"
         autoClose={5000}

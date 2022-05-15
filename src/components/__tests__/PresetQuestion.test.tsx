@@ -4,7 +4,6 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 describe('<PresetQuestion />', () => {
-
   i18n
     .use(initReactI18next)
     .init({
@@ -17,7 +16,6 @@ describe('<PresetQuestion />', () => {
       },
       lng: 'en', 
       fallbackLng: 'en',
-
       interpolation: {
         escapeValue: false
       }
@@ -25,7 +23,7 @@ describe('<PresetQuestion />', () => {
 
   const question = 'What\'s your name?';
 
-  it('render a preset question without crashing', () => {
+  it('renders a preset question without crashing', () => {
     const setPrompt = jest.fn();
     render(<PresetQuestion id={1} question={question} setPrompt={setPrompt} />);
     const presentQuestion = screen.getByTestId('preset-question-container');
@@ -33,7 +31,7 @@ describe('<PresetQuestion />', () => {
   
   });
 
-  it('setPrmopt is called after the question is clicked', () => {
+  it('calls setPrompt after the question is clicked', () => {
     const setPrompt = jest.fn();
     render(<PresetQuestion id={1} question={question} setPrompt={setPrompt} />);
     const presentQuestion = screen.getByTestId('preset-question-container');   

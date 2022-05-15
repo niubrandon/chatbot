@@ -27,6 +27,7 @@ export function useApplicationData() {
         itemIndex = i;
       }
     }
+    
     if (item.isFavorite) {
       let copyCollection = [...collection];
       copyCollection[itemIndex] = {id:item.id, prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: false};
