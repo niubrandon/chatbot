@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ReactComponent as BookmarkSvg } from '../assets/bookmark-solid.svg';
 import { ReactComponent as QuestionSvg } from '../assets/circle-question-regular.svg';
 import { ReactComponent as ResponseSvg } from '../assets/voicemail-solid.svg';
@@ -43,7 +42,7 @@ export default function Card ({item, handleFavorite}: Props) {
         <BookmarkSvg 
           role="button"
           onClick={() => handleFavorite(item)}
-          className={ item.isFavorite ? 'h-6 w-6 hover:fill-red-300 fill-red-400 dark:fill-white' : 'hover:animate-bounce h-6 w-6 fill-neutral-400 hover:fill-neutral-600'}>
+          className={ item.isFavorite ? 'h-6 w-6 hover:fill-red-300 fill-red-400' : 'hover:animate-bounce h-6 w-6 fill-neutral-400 hover:fill-neutral-600'}>
         </BookmarkSvg>      
       </div>  
     </div>

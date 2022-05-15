@@ -4,7 +4,7 @@ export default function About () {
 
   return (
     <>
-      <div className="fixed top-[20%] left-[50%] w-[400px] h-[500px] border-2 border-purple-200 
+      <div className="fixed top-[20%] left-[50%] w-[400px] h-[540px] border-2 border-purple-200 
       rounded-2xl shadow-md -ml-[200px] p-4 text-lg flex flex-col gap-2 dark:text-white">
         <section className="flex">
           <UserSvg className="h-24 w-24 dark:fill-white" />
@@ -12,22 +12,22 @@ export default function About () {
             <span className="text-xl font-semibold">Brandon Niu</span>
             <span className="italic">Software Developer</span>
             <span>Ottawa, Ontario, Canada</span>
-            <span>niubrandon@gmail.com</span>
+            <span className="font-medium text-neutral-400"><a href="mailto:niubrandon@gmail.com"><u>niubrandon@gmail.com</u></a></span>
           </div>
         </section>
         <section className="flex flex-col grow">
           <h2 className="font-semibold">Experience:</h2>
           <p className="text-base font-medium">PiiComm Inc. <span className="text-xs italic">Software Developer</span>  <span className="text-xs">Dec 2021 - Present</span></p>
-          <p className="text-sm"> - Developing a mobile asset manager platform and contribute the majority of the frontend development</p>
-          <p className="text-base font-medium">Multimatic Inc. <span className="text-xs italic">Quality Engineer</span>  <span className="text-xs">Jun 2016 - Aug 2021</span></p>
-          <p className="text-sm"> - Launched the Ford GT supercar project </p>
+          <p className="text-sm"> - Developing a mobile asset manager platform and contributing to the majority of the frontend development</p>
+          <p className="text-base font-medium mt-2">Multimatic Inc. <span className="text-xs italic">Quality Engineer</span>  <span className="text-xs">Jun 2016 - Aug 2021</span></p>
+          <p className="text-sm"> - Launched and maintained the Ford GT supercar project </p>
         </section>
         <section className="flex flex-col">
           <h2 className="font-semibold">Tech Stacks:</h2>
           <ul className="text-sm">
-            <li>- Proficient in Javascript, TypeScript, and modern web frameworks: React, and Vue</li>
-            <li>- Proficient in responsive web design building tools such as Tailwind, Flexbox, CSS-grid</li>
-            <li>- Experience with building microservices using Node.js, Express.js, Ruby on Rails, GoLang, C#</li>
+            <li>- Proficient in Javascript, TypeScript, and modern web frameworks: React and Vue</li>
+            <li>- Proficient in responsive web design building tools such as Tailwind, Flexbox and CSS-grid</li>
+            <li>- Experience with building microservices using Node.js, Express.js, Ruby on Rails, Go and C# and PostgreSQL</li>
             <li></li>
           </ul>      
         </section>

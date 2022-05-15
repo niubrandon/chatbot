@@ -1,11 +1,9 @@
 import PromptForm from '../components/PromptForm';
 import PresetView from '../views/PresetView';
 import CollectionView from '../views/CollectionView';
-import { ToastContainer, toast } from 'react-toastify';
 import { ReactComponent as CollectionSvg } from '../assets/grip-solid.svg';
 import { ReactComponent as PresetQuestionSvg } from '../assets/bolt-solid.svg';
 import { useTranslation } from 'react-i18next';
-import 'react-toastify/dist/ReactToastify.css';
 interface Collection {
   id: string
   prompt: string
@@ -29,7 +27,7 @@ export default function Home ({prompt, setPrompt, isLoading, collection, handleF
  
   return (
     <>
-      <div className="text-xl font-bold pt-6 dark:text-white flex flex-col gap-4">
+      <div className="text-xl font-bold pt-6 pb-8 dark:text-white flex flex-col gap-4">
         <PromptForm prompt={prompt} setPrompt={setPrompt} handleSubmit={handleSubmit} isLoading={isLoading} />
         <section className="flex flex-col" aria-labelledby="questions">
           <title className="flex ml-2 gap-2">
@@ -46,17 +44,6 @@ export default function Home ({prompt, setPrompt, isLoading, collection, handleF
           <CollectionView collection={collection} handleFavorite={handleFavorite} />      
         </section>    
       </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </>
   );
 }

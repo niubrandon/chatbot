@@ -2,7 +2,7 @@ import {render, fireEvent, screen} from '@testing-library/react';
 import Header from '../Header';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('<Header />', () => {
   i18n

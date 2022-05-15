@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as SearchSvg } from '../assets/searchengin-brands.svg';
 import { ReactComponent as CloseSvg } from '../assets/xmark-solid.svg';

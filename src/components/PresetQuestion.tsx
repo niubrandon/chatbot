@@ -33,7 +33,7 @@ export default function PresetQuestion ({id, question, setPrompt}: Props) {
         <p>{question}</p>     
       </div>
       { tooltip && <ReactTooltip id={`preset-question-${id}`} effect="solid" type='info' globalEventOff='click'>
-        <span>Try this one as prompt!</span>
+        <span>Try this one as a prompt!</span>
       </ReactTooltip> }
     
     </>

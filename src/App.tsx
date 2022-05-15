@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Favorite from './pages/Favorite';
 import Footer from './components/Footer';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 interface Collection {
   prompt: string
@@ -29,12 +30,12 @@ function App() {
   },[]);
 
   return (
-    <div className="flex flex-col dark:bg-black">
+    <div className="flex flex-col dark:bg-black h-fit min-h-screen">
       <Header />
       <main
         id="main"
         data-testid="main" 
-        className="mt-[70px] h-screen dark:from-black dark:to-slate-800"
+        className="mt-[70px] h-fit min-h-full dark:from-black dark:to-slate-800"
         role="main">
         <Routes>
           <Route path="/" element={<Home 
@@ -51,6 +52,17 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

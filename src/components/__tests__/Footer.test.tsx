@@ -1,4 +1,4 @@
-import {render, fireEvent, screen} from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Footer from '../Footer';
 
 describe('<Footer />', () => {

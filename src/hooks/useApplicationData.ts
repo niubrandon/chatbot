@@ -17,6 +17,7 @@ export function useApplicationData() {
   const [prompt, setPrompt] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [collection, setCollection] = useState<Collection[]>([]);
+
   const axios = require('axios');
 
   const handleFavorite = (item :Collection) => {
@@ -31,13 +32,13 @@ export function useApplicationData() {
       copyCollection[itemIndex] = {id:item.id, prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: false};
       setCollection(prevState => ([...copyCollection]));
       localStorage.setItem('collection', JSON.stringify(copyCollection));
-      toast.warning(`collection id:${item.id} removed from favorite`);
+      toast.warning('Removed from Favorites');
     } else {
       let copyCollection = [...collection];
       copyCollection[itemIndex] = {id:item.id, prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: true};
       setCollection(prevState => ([...copyCollection]));
       localStorage.setItem('collection', JSON.stringify(copyCollection));
-      toast.success(`collection id:${item.id} added to favorite`);
+      toast.success('Added to Favorites');
     }
   };
 
@@ -85,7 +86,7 @@ export function useApplicationData() {
           collectionArray.push(newCollection);
           localStorage.setItem('collection', JSON.stringify(collectionArray));
         }  
-        toast.success('🦄  Added to collection!');
+        toast.success('Added to collection');
         setIsLoading(false);
       }
       setPrompt('');   

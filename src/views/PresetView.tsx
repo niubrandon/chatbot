@@ -7,11 +7,11 @@ export default function PresetView ({setPrompt}: Props) {
 
   const presetQuestions = [
     'What\'s your name?', 
-    'Translate hello in chinese', 
-    'How many states in US?', 
+    'Translate hello to Chinese', 
+    'How many states are in the USA?', 
     'What music do you like?',
-    'How to make chicken noodle soup?',
-    'What\'s the name of the prime minister for Canada?'
+    'How do you make chicken noodle soup?',
+    'What\'s the name of the prime minister of Canada?'
   ];
   const Questions = presetQuestions.map((item, index) => {
     return (

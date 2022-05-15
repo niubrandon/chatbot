@@ -32,7 +32,7 @@ export default function LanguageSwitch () {
           id="language-switch-en"
           data-testid="language-switch-en"
           onClick={onEnglish}
-          className="w-5 h-5 disabled:text-gray-200"
+          className="w-5 h-5 disabled:text-gray-200 dark:disabled:text-gray-400"
           disabled={i18n.language==='en'}>
             EN
         </button>
@@ -41,7 +41,7 @@ export default function LanguageSwitch () {
           id="language-switch-fr"
           data-testid="language-switch-fr"
           onClick={onFrench}
-          className="w-5 h-5 disabled:text-gray-200"
+          className="w-5 h-5 disabled:text-gray-200 dark:disabled:text-gray-400"
           disabled={i18n.language==='fr'}>
             FR
         </button>       

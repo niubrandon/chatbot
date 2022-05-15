@@ -1,4 +1,4 @@
-import {render, screen, fireEvent} from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CollectionCard from '../CollectionCard';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
