@@ -5,6 +5,7 @@ import ModeSwitch from './components/ModeSwitch';
 import LanguageSwitch from './components/LanguageSwitch';
 import { ReactComponent as LogoSvg } from './assets/circle-nodes-solid.svg';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+
 function App() {
 
   const navigate = useNavigate();

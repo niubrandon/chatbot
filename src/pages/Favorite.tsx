@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CollectionCard from '../components/CollectionCard';
 
 interface Collection {
+  id: string
   prompt: string
   response: string
   postedOn: string
@@ -22,9 +23,9 @@ export default function Favorite () {
   const handleFavorite = () => {
 
   };
-  const collectionCards = favoriteCollection.filter((a)=> {return a.isFavorite;}).map((item, index) => {
+  const collectionCards = favoriteCollection.filter((a)=> {return a.isFavorite;}).map((item) => {
     return ( 
-      <CollectionCard item={item} key={index} handleFavorite={handleFavorite} />  
+      <CollectionCard item={item} key={item.id} handleFavorite={handleFavorite} />  
     );
   });
   return (

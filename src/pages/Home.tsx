@@ -7,12 +7,14 @@ import { ReactComponent as CollectionSvg } from '../assets/grip-solid.svg';
 import { ReactComponent as PresetQuestionSvg } from '../assets/bolt-solid.svg';
 import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
+import { v4 as uuidv4 } from 'uuid';
 interface Collection {
 prompt: string
 response: string
 postedOn: string
 isFavorite: boolean
 model: string
+id: string
 }
 export default function Home () {
   const [prompt, setPrompt] = useState('');
@@ -24,19 +26,27 @@ export default function Home () {
   const handleFavorite = (item :Collection) => {
     let itemIndex = 0;
     for (let i = 0; i < collection.length; i++) {
-      if (collection[i].prompt === item.prompt) {
+      if (collection[i].id === item.id) {
         itemIndex = i;
       }
     }
-    let copyCollection = [...collection];
-    copyCollection[itemIndex] = {prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: true};
-    setCollection(prevState => ([...copyCollection]));
-    localStorage.setItem('collection', JSON.stringify(copyCollection));
+    if (item.isFavorite) {
+      let copyCollection = [...collection];
+      copyCollection[itemIndex] = {id:item.id, prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: false};
+      setCollection(prevState => ([...copyCollection]));
+      localStorage.setItem('collection', JSON.stringify(copyCollection));
+    } else {
+      let copyCollection = [...collection];
+      copyCollection[itemIndex] = {id:item.id, prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: true};
+      setCollection(prevState => ([...copyCollection]));
+      localStorage.setItem('collection', JSON.stringify(copyCollection));
+    }
+  
 
   };
 
   let collectionArray: Array<Collection> = [];
-  
+
   function handleSubmit(event: any) {
     setIsLoading(true);
     event?.preventDefault();
@@ -63,7 +73,7 @@ export default function Home () {
       } else {       
 
         let postedOn = new Date();
-        const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), model: model , isFavorite: false };
+        const newCollection: Collection = {id: uuidv4(), prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), model: model , isFavorite: false };
    
         setCollection(prevState => (
           [...prevState, newCollection]

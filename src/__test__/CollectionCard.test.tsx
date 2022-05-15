@@ -22,7 +22,7 @@ describe('<CollectionCard />', () => {
       }
     });
 
-  const data = {prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', postedOn: '2022-05-13', isFavorite: false, model: 'Davinci'};
+  const data = {id:'11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000' ,prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', postedOn: '2022-05-13', isFavorite: false, model: 'Davinci'};
 
   it('renders collection card without crashing', () => {
     const handleFavorite = jest.fn();

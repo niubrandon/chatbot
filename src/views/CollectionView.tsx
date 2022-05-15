@@ -1,5 +1,6 @@
 import CollectionCard from '../components/CollectionCard';
 interface Collection {
+  id: string
   prompt: string
   response: string
   postedOn: string
@@ -12,9 +13,9 @@ interface Collection {
   }
 export default function CollectionView ({collection, handleFavorite}: Props) {
 
-  const collectionCards = collection.sort((a, b)=> {return Date.parse(b.postedOn) - Date.parse(a.postedOn);}).map((item, index) => {
+  const collectionCards = collection.sort((a, b)=> {return Date.parse(b.postedOn) - Date.parse(a.postedOn);}).map((item) => {
     return (
-      <CollectionCard item={item} key={index} handleFavorite={handleFavorite} />
+      <CollectionCard item={item} key={item.id} handleFavorite={handleFavorite} />
     );
   });
   return (
