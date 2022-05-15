@@ -11,6 +11,7 @@ interface Collection {
 prompt: string
 response: string
 postedOn: string
+isFavorite: boolean
 }
 export default function Home () {
   const [prompt, setPrompt] = useState('');
@@ -19,13 +20,26 @@ export default function Home () {
   const axios = require('axios');
   const { t, i18n } = useTranslation();
 
+  const handleFavorite = (item :Collection) => {
+    let itemIndex = 0;
+    for (let i = 0; i < collection.length; i++) {
+      if (collection[i].prompt === item.prompt) {
+        itemIndex = i;
+      }
+    }
+    let copyCollection = [...collection];
+    copyCollection[itemIndex] = {prompt: item.prompt, response: item.response, postedOn: item.postedOn, isFavorite: true};
+    setCollection(prevState => ([...copyCollection]));
+    localStorage.setItem('collection', JSON.stringify(copyCollection));
+
+  };
+
   let collectionArray: Array<Collection> = [];
   function handleSubmit(event: any) {
     setIsLoading(true);
     event?.preventDefault();
     console.log('##form data', event.target.prompt.value, event.target.model.value);
     const model = event.target.model.value === 'davinci' ? 'text-davinci-002' : 'text-curie-001';
-    //http request
     const url = `https://api.openai.com/v1/engines/${model}/completions`;
     const data = {
       'prompt': prompt,
@@ -47,7 +61,7 @@ export default function Home () {
         toast.warning('Sorry, I don\'t understand your question');
       } else {
         let postedOn = new Date();
-        const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString() };
+        const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), isFavorite: false };
    
         setCollection(prevState => (
           [...prevState, newCollection]
@@ -63,7 +77,7 @@ export default function Home () {
           collectionArray.push(newCollection);
           localStorage.setItem('collection', JSON.stringify(collectionArray));
         }  
-        toast.success('🦄 Please check you response in collection!');
+        toast.success('🦄  Please check you response in collection!');
         setIsLoading(false);
       }
       setPrompt('');   
@@ -98,7 +112,7 @@ export default function Home () {
             <CollectionSvg className="h-7 w-7 dark:fill-white" />
             <h2 id="collection" className="ml-4">{t('collection')}</h2>   
           </title>
-          <CollectionView collection={collection} setCollection={setCollection} />      
+          <CollectionView collection={collection} handleFavorite={handleFavorite} />      
         </section>    
       </div>
       <ToastContainer

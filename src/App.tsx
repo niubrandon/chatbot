@@ -1,5 +1,6 @@
 import Home from './pages/Home';
 import About from './pages/About';
+import Favorite from './pages/Favorite';
 import ModeSwitch from './components/ModeSwitch';
 import LanguageSwitch from './components/LanguageSwitch';
 import { ReactComponent as LogoSvg } from './assets/circle-nodes-solid.svg';
@@ -20,7 +21,9 @@ function App() {
             className="text-3xl font-bold text-purple-500"   
             role="banner"    
           >ChatBot</h1>
-          <nav role="navigation">
+          <nav role="navigation" className="flex gap-2">
+            <Link className="font-semibold" to="/">Home</Link>
+            <Link className="font-semibold" to="/favorite">Favorite</Link>
             <Link className="font-semibold" to="/about">About</Link>
           </nav>
         </div>
@@ -31,10 +34,11 @@ function App() {
 
       </div>
       <main 
-        className="mt-[70px] bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800"
+        className="mt-[70px] h-screen bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800"
         role="main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/favorite" element={<Favorite />} />
           <Route path="/about" element={<About />} />
         </Routes>
 

@@ -3,16 +3,17 @@ interface Collection {
   prompt: string
   response: string
   postedOn: string
+  isFavorite: boolean
   }
   interface Props {
     collection: Collection[]
-    setCollection: (value: Collection[]) => void
+    handleFavorite: (value: Collection) => void
   }
-export default function CollectionView ({collection, setCollection}: Props) {
+export default function CollectionView ({collection, handleFavorite}: Props) {
 
   const collectionCards = collection.sort((a, b)=> {return Date.parse(b.postedOn) - Date.parse(a.postedOn);}).map((item, index) => {
     return (
-      <CollectionCard item={item} key={index} />
+      <CollectionCard item={item} key={index} handleFavorite={handleFavorite} />
     );
   });
   return (

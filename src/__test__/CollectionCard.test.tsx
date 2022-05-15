@@ -22,10 +22,11 @@ describe('<CollectionCard />', () => {
       }
     });
 
-  const data = {prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', postedOn: '2022-05-13'};
+  const data = {prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', postedOn: '2022-05-13', isFavorite: false};
 
   it('renders collection card without crashing', () => {
-    render(<CollectionCard item={data} />);
+    const handleFavorite = jest.fn();
+    render(<CollectionCard item={data} handleFavorite={handleFavorite} />);
     //screen.debug();
   });
 
