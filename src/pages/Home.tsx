@@ -6,8 +6,6 @@ import { ReactComponent as CollectionSvg } from '../assets/grip-solid.svg';
 import { ReactComponent as PresetQuestionSvg } from '../assets/bolt-solid.svg';
 import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 interface Collection {
   id: string
   prompt: string
@@ -26,6 +24,7 @@ interface Collection {
   }
 
 export default function Home ({prompt, setPrompt, isLoading, collection, handleFavorite, handleSubmit}: Props) {
+
   const { t, i18n } = useTranslation();
  
   return (

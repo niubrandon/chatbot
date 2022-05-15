@@ -18,6 +18,7 @@ export default function PresetView ({setPrompt}: Props) {
       <PresetQuestion question={item} id={index} key={index} setPrompt={setPrompt} />
     );
   });
+  
   return (
     <>
       <div id="preset-questions-container"

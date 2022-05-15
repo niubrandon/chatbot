@@ -3,6 +3,7 @@ import { ReactComponent as DarkSvg } from '../assets/moon-solid.svg';
 import { ReactComponent as LightSvg } from '../assets/sun-solid.svg';
 
 export default function ModeSwitch () {
+  
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {

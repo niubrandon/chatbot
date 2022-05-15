@@ -18,6 +18,7 @@ interface Props {
 }
 
 export default function Card ({item, handleFavorite}: Props) {
+  
   const { t } = useTranslation();
 
   return (
@@ -34,7 +35,7 @@ export default function Card ({item, handleFavorite}: Props) {
           <p className="col-span-11 text-base grow">{item.response}</p>
         </div>
         <div className="grid grid-cols-2 gap-3 text-sm lg:grid-cols-1">
-          <p>{t('reference')}: <span className="text-sm font-normal text-neutral-400">{item.id}</span></p>  
+          <p>{t('reference')}: <span id="collection-id" data-testid="collection-id" className="text-sm font-normal text-neutral-400">{item.id}</span></p>  
           <p className="text-sm italic text-gray-300 flex justify-end lg:justify-start"> posted on: {item.postedOn}</p>
         </div>
       </div> 

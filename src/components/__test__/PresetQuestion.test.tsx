@@ -1,5 +1,5 @@
 import {render, fireEvent, screen} from '@testing-library/react';
-import PresetQuestion from '../components/PresetQuestion';
+import PresetQuestion from '../PresetQuestion';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 

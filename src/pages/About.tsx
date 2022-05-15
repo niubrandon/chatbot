@@ -1,4 +1,5 @@
 import { ReactComponent as UserSvg } from '../assets/user-regular.svg';
+
 export default function About () {
 
   return (

@@ -8,6 +8,8 @@ const resources = {
   en: {
     translation: {
       'about': 'About',
+      'home': 'Home',
+      'favorites': 'Favorites',
       'submit': 'Submit',
       'collection': 'Collection',
       'prompt': 'Prompt',
@@ -16,14 +18,14 @@ const resources = {
       'ask me anything': 'Ask me anything',
       'preset questions': 'Preset Questions',
       'reference': 'Reference',
-      'engine': 'Engine',
-      'home': 'Home',
-      'favorites': 'Favorites',
+      'engine': 'Engine',  
     }
   },
   fr: {
     translation: {
       'about': 'Sur',
+      'home': 'Domicile',
+      'favorites': 'Favoris',
       'submit': 'Soumettre',
       'collection': 'Le recueil',
       'prompt': 'Rapide',
@@ -32,9 +34,7 @@ const resources = {
       'ask me anything': 'Ask me anything',
       'preset questions': 'Questions Prédéfinies',
       'reference': 'Référence',
-      'engine': 'Moteur',
-      'home': 'Domicile',
-      'favorites': 'Favoris',
+      'engine': 'Moteur',   
     }
   }
 };
