@@ -13,7 +13,12 @@ const resources = {
       'prompt': 'Prompt',
       'response': 'Response',
       'choose a model': 'Choose a model',
-      'running out of ideas': 'Running out of ideas'
+      'ask me anything': 'Ask me anything',
+      'preset questions': 'Preset Questions',
+      'reference': 'Reference',
+      'engine': 'Engine',
+      'home': 'Home',
+      'favorites': 'Favorites',
     }
   },
   fr: {
@@ -24,7 +29,12 @@ const resources = {
       'prompt': 'Rapide',
       'response': 'Réponse',
       'choose a model': 'Choisi un modèle',
-      'running out of ideas': 'Manquer d\'idées'
+      'ask me anything': 'Ask me anything',
+      'preset questions': 'Questions Prédéfinies',
+      'reference': 'Référence',
+      'engine': 'Moteur',
+      'home': 'Domicile',
+      'favorites': 'Favoris',
     }
   }
 };

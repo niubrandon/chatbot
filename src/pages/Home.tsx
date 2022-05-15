@@ -35,7 +35,7 @@ export default function Home ({prompt, setPrompt, isLoading, collection, handleF
         <section className="flex flex-col" aria-labelledby="questions">
           <title className="flex ml-2 gap-2">
             <PresetQuestionSvg className="h-7 w-7 dark:fill-white" />
-            <h2 id="questions" className="ml-4">{t('running out of ideas')}?</h2>
+            <h2 id="questions" className="ml-4">{t('preset questions')}</h2>
           </title>   
           <PresetView setPrompt={setPrompt}  />     
         </section>

@@ -33,7 +33,7 @@ export default function Prompt ({prompt, isLoading, setPrompt, handleSubmit}: Pr
               name="prompt"
               onChange={(e) => setPrompt(e.target.value)}
               className="grow focus:outline-none dark:bg-slate-900 animate-pulse" 
-              placeholder="  Ask me anything"
+              placeholder={t('ask me anything')}
               maxLength={100}
               required />
             <CloseSvg role="button" className="h-6 w-6 mr-2 hover:scale-125" onClick={onClose} />
