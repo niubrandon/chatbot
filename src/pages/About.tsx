@@ -4,9 +4,9 @@ export default function About () {
   return (
     <>
       <div className="fixed top-[20%] left-[50%] w-[400px] h-[500px] border-2 border-purple-200 
-      rounded-2xl shadow-md -ml-[200px] p-4 text-lg flex flex-col gap-2">
+      rounded-2xl shadow-md -ml-[200px] p-4 text-lg flex flex-col gap-2 dark:text-white">
         <section className="flex">
-          <UserSvg className="h-24 w-24" />
+          <UserSvg className="h-24 w-24 dark:fill-white" />
           <div className="flex flex-col px-8">
             <span className="text-xl font-semibold">Brandon Niu</span>
             <span className="italic">Software Developer</span>
@@ -25,7 +25,7 @@ export default function About () {
           <h2 className="font-semibold">Tech Stacks:</h2>
           <ul className="text-sm">
             <li>- Proficient in Javascript, TypeScript, and modern web frameworks: React, and Vue</li>
-            <li>- Porficient in responsive web design building tools such as Tailwind, Flexbox, CSS-grid</li>
+            <li>- Proficient in responsive web design building tools such as Tailwind, Flexbox, CSS-grid</li>
             <li>- Experience with building microservices using Node.js, Express.js, Ruby on Rails, GoLang, C#</li>
             <li></li>
           </ul>      
