@@ -10,7 +10,11 @@ interface Collection {
   model: string
   }
 
-export default function Favorite () {
+  interface Props {
+    handleFavorite: (value: Collection) => void
+  }
+
+export default function Favorite ({handleFavorite}: Props) {
   const [favoriteCollection, setFavoriteCollection] = useState<Collection[]>([]);
   useEffect(() => {
     //retreive from localstorage
@@ -20,9 +24,6 @@ export default function Favorite () {
     }
   },[]);
 
-  const handleFavorite = () => {
-
-  };
   const collectionCards = favoriteCollection.filter((a)=> {return a.isFavorite;}).map((item) => {
     return ( 
       <CollectionCard item={item} key={item.id} handleFavorite={handleFavorite} />  
