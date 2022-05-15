@@ -22,7 +22,7 @@ describe('<CollectionCard />', () => {
       }
     });
 
-  const data = {prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', postedOn: '2022-05-13', isFavorite: false};
+  const data = {prompt: 'What\'s your name?', response: '↵↵My name is Samantha.', postedOn: '2022-05-13', isFavorite: false, model: 'Davinci'};
 
   it('renders collection card without crashing', () => {
     const handleFavorite = jest.fn();

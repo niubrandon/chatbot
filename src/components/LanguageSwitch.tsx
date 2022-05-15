@@ -9,15 +9,15 @@ export default function LanguageSwitch () {
     }
   }, []);
 
-  function onEnglish () :void {
+  const onEnglish = () => {
     window.localStorage.language='en';
     i18n.changeLanguage('en');
-  }
+  };
 
-  function onFrench () :void {
+  const onFrench = () => {
     window.localStorage.language='fr';
     i18n.changeLanguage('fr');
-  }
+  };
 
   return (
     <>

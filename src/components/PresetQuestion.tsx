@@ -12,9 +12,9 @@ export default function PresetQuestion ({id, question, setPrompt}: Props) {
   // https://github.com/wwayne/react-tooltip/issues/769
   const [tooltip, showTooltip] = useState(true);
 
-  function onPresetQuestion() {
+  const onPresetQuestion = () => {
     setPrompt(question);
-  }
+  };
   return (
     <>
       <div

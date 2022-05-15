@@ -17,13 +17,13 @@ function App() {
         <div className="flex items-center gap-6">
           <LogoSvg className="w-7 h-7 fill-purple-500" />
           <h1 
-            onClick={() => navigate('/') }
-            className="text-3xl font-bold text-purple-500"   
+            onClick={() => navigate('/')}
+            className="text-3xl font-bold text-purple-500 cursor-pointer"   
             role="banner"    
           >ChatBot</h1>
           <nav role="navigation" className="flex gap-2">
             <Link className="font-semibold" to="/">Home</Link>
-            <Link className="font-semibold" to="/favorite">Favorite</Link>
+            <Link className="font-semibold" to="/favorite">Favorites</Link>
             <Link className="font-semibold" to="/about">About</Link>
           </nav>
         </div>
@@ -34,7 +34,7 @@ function App() {
 
       </div>
       <main 
-        className="mt-[70px] h-screen bg-gradient-to-b from-white to-slate-100 dark:from-black dark:to-slate-800"
+        className="mt-[70px] h-screen dark:from-black dark:to-slate-800"
         role="main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -44,11 +44,13 @@ function App() {
 
       </main>
       <footer 
-        className="fixed bottom-0 w-full flex items-center justify-center 
+        className="fixed bottom-0 py-2 w-full flex items-center justify-center 
       bg-slate-100 dark:bg-slate-900 dark:text-white font-medium z-10"
         role="contentinfo"
       >
-        <p>Made in <span className="text-red-400">&hearts;</span> with Brandon!</p>
+        <p>
+          Made with <span className="text-red-400">&hearts;</span> by <a href="https://www.linkedin.com/in/niubrandon/"className="text-purple-600">Brandon</a>
+        </p>
       </footer>
     </div>
   );

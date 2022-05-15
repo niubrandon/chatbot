@@ -3,7 +3,7 @@ interface Props {
   setPrompt: (value: string) => void
 }
 
-export default function PresetView ({ setPrompt }: Props) {
+export default function PresetView ({setPrompt}: Props) {
 
   const presetQuestions = [
     'What\'s your name?', 

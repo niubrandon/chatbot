@@ -4,6 +4,7 @@ interface Collection {
   response: string
   postedOn: string
   isFavorite: boolean
+  model: string
   }
   interface Props {
     collection: Collection[]

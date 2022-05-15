@@ -13,15 +13,15 @@ export default function ModeSwitch () {
     }
   }, [theme]);
 
-  function onLightMode () {
+  const onLightMode = () => {
     window.localStorage.theme='light';
     setTheme('light');
-  }
+  };
 
-  function onDarkMode () {
+  const onDarkMode = () => {
     window.localStorage.theme='dark';
     setTheme('dark');
-  }
+  };
 
   return (
     <>

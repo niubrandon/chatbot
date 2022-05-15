@@ -12,6 +12,7 @@ prompt: string
 response: string
 postedOn: string
 isFavorite: boolean
+model: string
 }
 export default function Home () {
   const [prompt, setPrompt] = useState('');
@@ -28,13 +29,14 @@ export default function Home () {
       }
     }
     let copyCollection = [...collection];
-    copyCollection[itemIndex] = {prompt: item.prompt, response: item.response, postedOn: item.postedOn, isFavorite: true};
+    copyCollection[itemIndex] = {prompt: item.prompt, response: item.response, postedOn: item.postedOn, model: item.model,isFavorite: true};
     setCollection(prevState => ([...copyCollection]));
     localStorage.setItem('collection', JSON.stringify(copyCollection));
 
   };
 
   let collectionArray: Array<Collection> = [];
+  
   function handleSubmit(event: any) {
     setIsLoading(true);
     event?.preventDefault();
@@ -55,13 +57,13 @@ export default function Home () {
       headers: {
         'Authorization': `Bearer ${REACT_APP_API_KEY}`
       }
-    }).then((res: any) => {
-      
+    }).then((res: any) => {    
       if (!res.data.choices[0].text) {
         toast.warning('Sorry, I don\'t understand your question');
-      } else {
+      } else {       
+
         let postedOn = new Date();
-        const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), isFavorite: false };
+        const newCollection: Collection = {prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), model: model , isFavorite: false };
    
         setCollection(prevState => (
           [...prevState, newCollection]
@@ -77,7 +79,7 @@ export default function Home () {
           collectionArray.push(newCollection);
           localStorage.setItem('collection', JSON.stringify(collectionArray));
         }  
-        toast.success('🦄  Please check you response in collection!');
+        toast.success('🦄  Added to collection!');
         setIsLoading(false);
       }
       setPrompt('');   
