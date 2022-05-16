@@ -37,7 +37,7 @@ function App() {
       <main
         id="main"
         data-testid="main" 
-        className="mt-[70px] h-fit min-h-full dark:from-black dark:to-slate-800"
+        className="mt-[70px] sm:mt-[102px] h-fit min-h-full dark:from-black dark:to-slate-800"
         role="main"
       >
         <Routes>
