@@ -29,26 +29,24 @@ jobs:
   deploy:
     working_directory: ~/repo
     docker:
-      - image: amazon/awscli:latest
+      - image: innovatorjapan/awscli:latest
     steps:
       - attach_workspace:
           at: .
       - run:
           name: Deploy
           command: |
-            npm run deploy
+             aws s3 sync build s3://brandon-react-cicd --delete --exact-timestamps;
 workflows:
   build_and_deploy:
     jobs:
       - build:
           filters:
             branches:
-              only:
-                - circleci-project-setup
+               ignore: production
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only:
-                - circleci-project-setup
+              ignore: production
