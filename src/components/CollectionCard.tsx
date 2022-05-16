@@ -27,12 +27,12 @@ export default function Card ({item, handleFavorite}: Props) {
       <div className="flex flex-col w-full justify-around text-base gap-2">
         <p>AI {t('engine')}: <span className="text-md font-normal text-neutral-400">{item.model}</span></p>
 
-        <div className="grid grid-cols-12 gap-3 items-center">
+        <div className="grid grid-cols-12 gap-3">
           <QuestionSvg className="h-5 w-5 fill-purple-300" />
           <p className="col-span-11 text-base grow">{item.prompt}</p>
         </div>
 
-        <div className="grid grid-cols-12 gap-3 items-center">
+        <div className="grid grid-cols-12 gap-3">
           <ResponseSvg className="h-5 w-5 fill-sky-500" />
           <p className="col-span-11 text-base grow">{item.response}</p>
         </div>
