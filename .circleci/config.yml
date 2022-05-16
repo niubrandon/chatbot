@@ -43,12 +43,12 @@ workflows:
       - build:
           filters:
             branches:
-              only:
-                - circleci-project-setup
+               ignore: production
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only:
-                - circleci-project-setup
+              ignore: production
+          requires:
+            - build
