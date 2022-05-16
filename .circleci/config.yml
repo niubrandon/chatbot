@@ -17,11 +17,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-      - run: npm test
       - run:
           name: Build
-          command: npm run build
-         
+          command: |
+            if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
+              npm run build
+            fi
       - persist_to_workspace:
           root: .
           paths:
@@ -29,15 +30,16 @@ jobs:
   deploy:
     working_directory: ~/repo
     docker:
-      - image: amazon/awscli:latest
+      - image: innovatorjapan/awscli:latest
     steps:
       - attach_workspace:
           at: .
       - run:
           name: Deploy
           command: |
-          aws s3 sync build s3://brandon-react-cicd --delete --exact-timestamps;
-          
+            if [ $CIRCLE_BRANCH = 'circleci-project-setup' ]; then
+              aws s3 sync build s3://brandon-react-cicd --delete --exact-timestamps;
+            fi
 workflows:
   build_and_deploy:
     jobs:
