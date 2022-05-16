@@ -25,7 +25,7 @@
                 - ~/.cache
               key: v1-dependencies-{{ checksum "package.json" }}
     
-          - run: npm lint
+          - run: npm test
     
           - run: npm run build
     

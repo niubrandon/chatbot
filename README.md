@@ -1,6 +1,7 @@
 # ChatBot
 An Artificial Intelligence (AI) ChatBot that uses OpenAI API packed with many features.
 
+View the app demo here: http://brandon-react-cicd.s3-website-us-east-1.amazonaws.com
 ## Tech Stack:
 - React
 - TypeScript
