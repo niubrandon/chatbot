@@ -48,7 +48,6 @@ export function useApplicationData() {
   function handleSubmit(event: any) {
     setIsLoading(true);
     event?.preventDefault();
-    console.log('##form data', event.target.prompt.value, event.target.model.value);
     const model = event.target.model.value === 'davinci' ? 'text-davinci-002' : 'text-curie-001';
     const url = `https://api.openai.com/v1/engines/${model}/completions`;
     const data = {
@@ -65,36 +64,31 @@ export function useApplicationData() {
       headers: {
         'Authorization': `Bearer ${REACT_APP_API_KEY}`
       }
-    }).then((res: any) => {    
-      if (!res.data.choices[0].text) {
-        toast.warning('Sorry, I don\'t understand your question');
-      } else {       
-
-        let postedOn = new Date();
-        const newCollection: Collection = {id: uuidv4(), prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), model: model , isFavorite: false };
+    }).then((res: any) => {
+      let postedOn = new Date();
+      const newCollection: Collection = {id: uuidv4(), prompt: prompt, response:res.data.choices[0].text, postedOn: postedOn.toUTCString(), model: model , isFavorite: false };
    
-        setCollection(prevState => (
-          [...prevState, newCollection]
-        ));
+      setCollection(prevState => (
+        [...prevState, newCollection]
+      ));
           
-        if (localStorage.collection) {   
-          collectionArray = JSON.parse(localStorage.collection);
-          collectionArray.unshift(newCollection);   
-          localStorage.setItem('collection', JSON.stringify(collectionArray));
+      if (localStorage.collection) {   
+        collectionArray = JSON.parse(localStorage.collection);
+        collectionArray.unshift(newCollection);   
+        localStorage.setItem('collection', JSON.stringify(collectionArray));
                        
-        } else {
-          let collectionArray: Array<Collection> = [];
-          collectionArray.push(newCollection);
-          localStorage.setItem('collection', JSON.stringify(collectionArray));
-        }  
-        toast.success('Added to collection');
-        setIsLoading(false);
-      }
+      } else {
+        let collectionArray: Array<Collection> = [];
+        collectionArray.push(newCollection);
+        localStorage.setItem('collection', JSON.stringify(collectionArray));
+      }  
+      toast.success('Added to collection');
+      setIsLoading(false);
+      
       setPrompt('');   
    
     }).catch((error: any) => {
-      console.log(error);
-      toast.error(error);
+      toast.error(error.message);
       setIsLoading(false);
     });
   }
