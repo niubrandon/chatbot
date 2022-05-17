@@ -4,8 +4,8 @@ export default function About () {
 
   return (
     <>
-      <div className="fixed top-[20%] left-[50%] w-[400px] h-[540px] border-2 border-purple-200 
-      rounded-2xl shadow-md -ml-[200px] p-4 text-lg flex flex-col gap-2 dark:text-white">
+      <div className="fixed top-[20%] left-[50%] w-[400px] h-fit border-2 border-purple-200 
+      rounded-2xl shadow-md -ml-[200px] p-4 text-lg flex flex-col gap-2 dark:text-white sm:w-[380px] sm:-ml-[190px]">
         <section className="flex">
           <UserSvg className="h-24 w-24 dark:fill-white" />
           <div className="flex flex-col px-8">
