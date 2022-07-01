@@ -86,3 +86,14 @@ The following extra features were also implemented:
 - run app in the development mode: `npm start`
 - open http://localhost:3000 to view it in the browser
 - build the app for production to the build folder: `npm run build`
+
+## Optional setup with docker
+
+### Build docker image:
+```
+docker build -t react-chatbot/my-app .
+```
+### Run our app in a Docker container
+```
+docker run -it -p 8080:8080 --rm --name my-app-1 react-chatbot/my-app
+```
